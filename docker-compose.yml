@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  count_visitor:
+    container_name: count_visitor
+    build:
+      context: .
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    ports:
+      - "5555:5555"
