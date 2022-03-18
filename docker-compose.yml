@@ -10,4 +10,4 @@ services:
     volumes:
       - .:/app
     ports:
-      - "5555:5555"
+      - "8080:8080"
