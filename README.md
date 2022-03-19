@@ -1,3 +1,4 @@
+
 ## Count Visitor
 
 ### Project Explaining:
@@ -17,7 +18,14 @@ For the project to up; Docker application must be installed and running in your 
 
 ### Clone Project:
 
-**https://github.com/omerdemirarslan/count-visitor**
+    git clone https://github.com/omerdemirarslan/count-visitor
+
+### Necessary File
+    You Have To .env File In The Project Line
+
+### Project PORT
+
+    This Project Runs On 8080 
 
 ### Run The Project:
     
@@ -44,7 +52,8 @@ For the project to up; Docker application must be installed and running in your 
 
 #### Request
     METHOD: POST
-    ENDPONINT: /api/v1/visitor/count/
+    URL: http://0.0.0.0:8080
+    ENDPOINT: /api/v1/visitor/count/
     ROW:
 ```json
 {

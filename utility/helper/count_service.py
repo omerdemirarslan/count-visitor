@@ -23,13 +23,13 @@ class VisitorCountService:
             if item["type"] == "out":
                 hourly_exit_data += item["value"]
 
-        hourly_insite_data = hourly_entry_data - hourly_exit_data + current_visitor
+        hourly_inside_data = hourly_entry_data - hourly_exit_data + current_visitor
 
         calculated_data = {
             "hour_interval": hour_interval,
             "hourly_entry_data": hourly_entry_data,
             "hourly_exit_data": hourly_exit_data,
-            "hourly_insite_data": hourly_insite_data
+            "hourly_inside_data": hourly_inside_data
         }
 
         return calculated_data
@@ -40,23 +40,22 @@ class VisitorCountService:
         :param visitors_data:
         :return:
         """
-        calculated_data = {"hourly_insite_data": 0}
-
+        calculated_data = {"hourly_inside_data": 0}
         result = []
 
         for hour_interval, entry_exit_data in visitors_data.items():
             calculated_data = self.calculate_visitor_entry_and_exit(
                 hour_interval=hour_interval,
                 entry_exit_data=entry_exit_data,
-                current_visitor=calculated_data["hourly_insite_data"]
+                current_visitor=calculated_data["hourly_inside_data"]
             )
 
             result.append(calculated_data)
 
-        return self.return_calculated_visitor_count_data(calculate_data=result)
+        return self.convert_calculated_visitor_data_to_readable_data(calculate_data=result)
 
     @staticmethod
-    def return_calculated_visitor_count_data(calculate_data: list) -> dict:
+    def convert_calculated_visitor_data_to_readable_data(calculate_data: list) -> dict:
         """
         This Method Returns Readable Calculated Visitor Count Data
         :param calculate_data:
@@ -70,7 +69,7 @@ class VisitorCountService:
                     hour_interval=data["hour_interval"],
                     entry_count=data["hourly_entry_data"],
                     exit_count=data["hourly_exit_data"],
-                    current_count=data["hourly_insite_data"]
+                    current_count=data["hourly_inside_data"]
 
                 )
             )
