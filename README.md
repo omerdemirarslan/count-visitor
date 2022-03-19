@@ -37,7 +37,7 @@ For the project to up; Docker application must be installed and running in your 
 ---
 ### API Endpoints:
 
-    * /api/v1/visitor/count/       (Gets Calculated Visitor Count Data)
+    -> /api/v1/visitor/count/       (Gets Calculated Visitor Count Data)
 
 ### Endpoints
 ---
