@@ -1,7 +1,7 @@
 import json
 import os
-import unittest
 import requests
+import unittest
 
 
 class VisitorCounterServiceTestCase(unittest.TestCase):
@@ -18,7 +18,6 @@ class VisitorCounterServiceTestCase(unittest.TestCase):
         response = requests.post(
             url=url,
             json=json_data
-
         )
 
         self.assertEqual(response.status_code, 200)
@@ -32,7 +31,6 @@ class VisitorCounterServiceTestCase(unittest.TestCase):
         response = requests.post(
             url=url,
             json=json.loads(json_data)
-
         )
 
         json_data = json.loads(response.text)
